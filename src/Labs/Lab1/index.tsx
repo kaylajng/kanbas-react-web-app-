@@ -311,6 +311,16 @@ export default function Lab1() {
       </a>
       to get dummy text
       <br />
+      <h4>Anchor tag</h4>
+      Please
+      <a
+        id="wd-github"
+        href="https://github.com/kaylajng/kanbas-react-web-app.git"
+      >
+        click here
+      </a>
+      to get code repository on GitHub
+      <br />
     </div>
   );
 }
