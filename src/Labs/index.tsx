@@ -9,6 +9,7 @@ export default function Labs() {
     <div id="wd-labs">
       <h1>Labs</h1>
       <h2>Kayla Jiang</h2>
+      <h3>Section: 20596</h3>
       <TOC />
 
       <Routes>
