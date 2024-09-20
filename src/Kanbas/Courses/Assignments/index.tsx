@@ -21,7 +21,6 @@ export default function Assignments() {
         </li>
         {/* Assignment 2 */}
         <li className="wd-assignment-list-item">
-          {/* Complete On Your Own */}
           <a
             className="wd-assignment-link"
             href="#/Kanbas/Courses/1234/Assignments/124"

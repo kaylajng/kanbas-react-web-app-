@@ -1,4 +1,3 @@
-//Name: Kayla Jiang
 import Lab1 from "./Lab1";
 import { Route, Routes, Navigate } from "react-router";
 import TOC from "./TOC";
@@ -9,6 +8,7 @@ export default function Labs() {
   return (
     <div id="wd-labs">
       <h1>Labs</h1>
+      <h2>Kayla Jiang</h2>
       <TOC />
 
       <Routes>
