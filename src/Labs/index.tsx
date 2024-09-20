@@ -10,6 +10,14 @@ export default function Labs() {
     <div id="wd-labs">
       <h1>Labs</h1>
       <TOC />
+
+      <a
+        id="wd-github"
+        href="https://github.com/kaylajng/kanbas-react-web-app.git"
+      >
+        Kanbas React Web App
+      </a>
+
       <Routes>
         <Route path="/" element={<Navigate to="Lab1" />} />
         <Route path="Lab1" element={<Lab1 />} />

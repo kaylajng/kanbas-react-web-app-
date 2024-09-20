@@ -74,9 +74,9 @@ export default function Lab1() {
         </ul>
         Your favorite books (in no particular order)
         <ul id="wd-your-books">
-          <li>The Little Prince.</li>
-          <li>Pride and Prejudice.</li>
-          <li>Gone with the Wind.</li>
+          <li>The Little Prince</li>
+          <li>Pride and Prejudice</li>
+          <li>Gone with the Wind</li>
         </ul>
       </div>
       <div id="wd-tables">
