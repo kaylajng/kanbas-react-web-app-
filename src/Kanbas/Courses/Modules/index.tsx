@@ -59,12 +59,13 @@ export default function Modules() {
             </li>
             <li className="wd-content-item list-group-item ps-1">
               <BsGripVertical className="me-5 fs-3" />
-              Chapter 1 - Introduction
+              Full Stack Developer - Chapter 1 - Introduction
               <LessonControlButtons />
             </li>
             <li className="wd-content-item list-group-item ps-1">
               <BsGripVertical className="me-5 fs-3" />
-              Chapter 2 - Creating User Interfaces with HTML
+              Full Stack Developer - Chapter 2 - Creating User Interfaces with
+              HTML
               <LessonControlButtons />
             </li>
 
@@ -110,12 +111,12 @@ export default function Modules() {
             </li>
             <li className="wd-content-item list-group-item ps-1">
               <BsGripVertical className="me-5 fs-3" />
-              Formatting Web content with Headings and Paragraphs
+              Headings and Paragraphs
               <LessonControlButtons />
             </li>
             <li className="wd-content-item list-group-item ps-1">
               <BsGripVertical className="me-5 fs-3" />
-              Formatting content with Lists and Tables
+              Lists and Tables
               <LessonControlButtons />
             </li>
             <li className="wd-content-item list-group-item ps-1">
@@ -179,12 +180,13 @@ export default function Modules() {
             </li>
             <li className="wd-content-item list-group-item ps-1">
               <BsGripVertical className="me-5 fs-3" />
-              Chapter 1 - Introduction
+              Full Stack Developer - Chapter 1 - Introduction
               <LessonControlButtons />
             </li>
             <li className="wd-content-item list-group-item ps-1">
               <BsGripVertical className="me-5 fs-3" />
-              Chapter 2 - Creating User Interfaces with HTML
+              Full Stack Developer - Chapter 2 - Creating User Interfaces with
+              HTML
               <LessonControlButtons />
             </li>
 
@@ -230,22 +232,22 @@ export default function Modules() {
             </li>
             <li className="wd-content-item list-group-item ps-1">
               <BsGripVertical className="me-5 fs-3" />
-              Selectors by tag ID, classes, and document structure
+              Selectors
               <LessonControlButtons />
             </li>
             <li className="wd-content-item list-group-item ps-1">
               <BsGripVertical className="me-5 fs-3" />
-              Styling color and background color
+              Color and Background Color
               <LessonControlButtons />
             </li>
             <li className="wd-content-item list-group-item ps-1">
               <BsGripVertical className="me-5 fs-3" />
-              Styling dimensions and positions
+              Dimensions and Positions
               <LessonControlButtons />
             </li>
             <li className="wd-content-item list-group-item ps-1">
               <BsGripVertical className="me-5 fs-3" />
-              The box model - styling margins, borders, and paddings
+              The Box Model
               <LessonControlButtons />
             </li>
 
@@ -256,7 +258,8 @@ export default function Modules() {
             </li>
             <li className="wd-content-item list-group-item ps-1">
               <BsGripVertical className="me-5 fs-3" />
-              Chapter 3 - Styling User Interfaces With Cascading Style Sheets
+              Full Stack Developer - Chapter 3 - Styling User Interfaces With
+              CSS
               <LessonControlButtons />
             </li>
 

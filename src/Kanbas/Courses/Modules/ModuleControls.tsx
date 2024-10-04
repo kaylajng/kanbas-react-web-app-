@@ -1,4 +1,3 @@
-// FIXME: white circle isn't perfectly aligned
 import RedCrossMark from "./RedCrossmark";
 import GreenCheckmark from "./GreenCheckmark";
 import { FaPlus } from "react-icons/fa6";
@@ -29,7 +28,7 @@ export default function ModulesControls() {
           <li>
             <a
               id="wd-publish-all-modules-and-items-btn"
-              className="dropdown-item py-2"
+              className="dropdown-item"
               href="#"
             >
               <GreenCheckmark />
@@ -46,6 +45,7 @@ export default function ModulesControls() {
               Publish modules only
             </a>
           </li>
+
           <li>
             <a
               id="wd-unpublish-all-modules-and-items"
