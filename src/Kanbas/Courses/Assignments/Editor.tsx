@@ -1,137 +1,247 @@
 export default function AssignmentEditor() {
   return (
-    <div id="wd-assignments-editor">
-      <label htmlFor="wd-name">Assignment Name</label>
-      <input id="wd-name" value="A1 - ENV + HTML" />
-      <br />
-      <br />
+    <div id="wd-assignments-editor" className="ms-4">
+      {/* Assignment Name Section */}
+      <div className="my-4">
+        <label htmlFor="wd-name" className="form-label">
+          <h3>Assignment Name</h3>
+        </label>
 
-      {/* Assignment Description */}
-      <textarea id="wd-description">
-        The assignment is available online Submit a link to the landing page of
-        your Web application running on Netlify. The landing page should include
-        the following: Your full name and section Links to each of the lab
-        assignments Link to the Kanbas application Links to all relevant source
-        code repositories. The Kanbas application should include a link to
-        navigate back to the landing page.
-      </textarea>
-      <br />
+        <input
+          id="wd-name"
+          type="text"
+          className="form-control form-control-lg"
+          placeholder="Assignment Name"
+          value={"A1 - ENV + HTML"}
+        />
+      </div>
 
-      {/* Points, Assignment Group, Display Grade, Submission Type */}
-      <table>
-        {/* Points */}
-        <tr>
-          <td align="right" valign="top">
-            <label htmlFor="wd-points">Points</label>
-          </td>
-          <td>
-            <input id="wd-points" value={100} />
-          </td>
-        </tr>
-        {/* Complete on your own */}
-        {/* Assignment Group */}
-        <tr>
-          <td align="right" valign="top">
-            <label htmlFor="wd-group">Assignment Group</label>
-          </td>
-          <td>
-            <select id="wd-group">
-              <option value="ASSIGNMENTS">ASSIGNMENTS</option>
+      {/* Assignment Description Section */}
+      {/* FIXME: doesn't look exactly like the picture */}
+      <div className="mt-3 mb-5">
+        <textarea
+          id="wd-description"
+          className="form-control form-control-lg"
+          cols={30}
+          rows={10}
+        >
+          The assignment is available online Submit a link to the landing page
+          of your Web application running on Netlify. The landing page should
+          include the following: Your full name and section, Links to each of
+          the lab assignments, Link to the Kanbas application, Links to all
+          relevant source code repositories. The Kanbas application should
+          include a link to navigate back to the landing page.
+        </textarea>
+      </div>
+
+      {/* FIXME: doesn't actually justify all the way to end */}
+      <div className="container d-flex flex-column justify-content-end">
+        {/* Points Section */}
+        <div className="row my-4">
+          <div className="col d-flex align-items-center justify-content-end">
+            <label htmlFor="wd-points" className="form-label">
+              <h5>Points</h5>
+            </label>
+          </div>
+
+          <div className="col align-items-center d-flex align-items-center">
+            <input
+              id="wd-points"
+              type="number"
+              placeholder="100"
+              min="0"
+              className="form-control"
+            />
+          </div>
+        </div>
+
+        {/* Assignment Group Section */}
+        <div className="row my-4">
+          <div className="col d-flex align-items-center justify-content-end">
+            <label htmlFor="wd-group" className="form-label">
+              <h5>Assignment Group</h5>
+            </label>
+          </div>
+
+          <div className="col align-items-center d-flex align-items-center">
+            <select id="wd-group" className="form-select">
+              <option selected>ASSIGNMENTS</option>
+              <option>QUIZZES</option>
+              <option>EXAMS</option>
+              <option>PROJECT</option>
             </select>
-          </td>
-        </tr>
-        {/* Display Grade As */}
-        <tr>
-          <td align="right" valign="top">
-            <label htmlFor="wd-display-grade-as">Display Grade as</label>
-          </td>
-          <td>
-            <select id="wd-display-grade-as">
-              <option value="Percentage">Percentage</option>
-              <option value="Complete/Incomplete">Complete/Incomplete</option>
+          </div>
+        </div>
+
+        {/* Display Grade Section */}
+        <div className="row my-4">
+          <div className="col d-flex align-items-center justify-content-end">
+            <label htmlFor="wd-display-group-as" className="form-label">
+              <h5>Display Grade As</h5>
+            </label>
+          </div>
+
+          <div className="col align-items-center d-flex align-items-center">
+            <select id="wd-display-group-as" className="form-select">
+              <option selected>Percentage</option>
+              <option>Letter Grade</option>
             </select>
-          </td>
-        </tr>
-        {/* Submission Type with Online Entry Options */}
-        <tr>
-          <td align="right" valign="top">
-            <label htmlFor="wd-submission-type">Submission Type</label>
-          </td>
-          <td>
-            <select id="wd-submission-type">
-              <option value="Online">Online</option>
+          </div>
+        </div>
+
+        {/* FIXME: the border isn't the same size */}
+        {/* Submission Type Section */}
+        <div className="row my-4">
+          <div className="col d-flex align-items-center justify-content-end">
+            <label className="form-label">
+              <h5>Submission Type</h5>
+            </label>
+          </div>
+
+          {/* FIXME: the border isn't the same size */}
+          <div className="col ms-3 me-2 form-control d-flex flex-column align-items-start ">
+            <select id="wd-submission-type" className="form-select mt-2 mb-4">
+              <option selected>Online</option>
+              <option>Physical</option>
             </select>
-            <div id="wd-online-entry-options">
-              <label>Online Entry Options</label>
+
+            <b>Online Entry Options</b>
+            <form className="form-check">
+              <label className="form-check-label my-2">
+                <input
+                  name="wd-entry-options"
+                  type="checkbox"
+                  id="wd-text-entry"
+                  className="form-check-input"
+                />
+                Text Entry
+              </label>
               <br />
-              <input type="checkbox" id="wd-text-entry" /> Text Entry <br />
-              <input type="checkbox" id="wd-website-url" /> Website URL <br />
-              <input type="checkbox" id="wd-media-recordings" /> Media
-              Recordings <br />
-              <input type="checkbox" id="wd-student-annotation" /> Student
-              Annotation <br />
-              <input type="checkbox" id="wd-file-upload" /> File Uploads
-            </div>
-          </td>
-        </tr>
+
+              <label className="form-check-label my-2">
+                <input
+                  name="wd-entry-options"
+                  type="checkbox"
+                  id="wd-website-url"
+                  className="form-check-input"
+                />
+                Website URL
+              </label>
+              <br />
+
+              <label className="form-check-label my-2">
+                <input
+                  name="wd-entry-options"
+                  type="checkbox"
+                  id="wd-media-recordings"
+                  className="form-check-input"
+                />
+                Media Recordings
+              </label>
+              <br />
+
+              <label className="form-check-label my-2">
+                <input
+                  name="wd-entry-options"
+                  type="checkbox"
+                  id="wd-student-annotation"
+                  className="form-check-input"
+                />
+                Student Annotation
+              </label>
+              <br />
+
+              <label className="form-check-label my-2">
+                <input
+                  name="wd-entry-options"
+                  type="checkbox"
+                  id="wd-file-upload"
+                  className="form-check-input"
+                />
+                File Uploads
+              </label>
+              <br />
+            </form>
+          </div>
+        </div>
+
+        {/* FIXME: the border isn't the same size */}
         {/* Assign Section */}
-        <tr>
-          <td align="right" valign="top">
-            <label htmlFor="wd-assign">Assign</label>
-          </td>
-          <td>
-            <div id="wd-assign-section">
-              {/* Assign To */}
-              <label htmlFor="wd-assign-to">Assign to</label>
-              <br />
-              <input id="wd-assign-to" type="text" value="Everyone" />
-              <br />
-              <br />
+        <div className="row my-4">
+          <div className="col d-flex align-items-center justify-content-end">
+            <label className="form-label">
+              <h5>Assign</h5>
+            </label>
+          </div>
 
-              {/* Due Date */}
-              <label htmlFor="wd-due-date">Due</label>
-              <br />
-              <input type="date" id="wd-due-date" value="2024-05-13" />
-              <br />
-              <br />
-
-              {/* Available From and Until */}
-              <table>
-                <tr>
-                  <td>
-                    <label htmlFor="wd-available-from">Available from</label>
-                    <br />
-                    <input
-                      type="date"
-                      id="wd-available-from"
-                      value="2024-05-06"
-                    />
-                  </td>
-                  <label htmlFor="wd-available-until">Until</label>
-                  <br />
+          <div className="col ms-4 me-2 form-control d-flex flex-column align-items-start ">
+            <div className="container">
+              <div className="row">
+                <label className="form-label">
+                  <b>Assign To</b>
                   <input
-                    type="date"
-                    id="wd-available-until"
-                    value="2024-05-20"
+                    className="form-control"
+                    id="wd-assign-to"
+                    value="Everyone"
                   />
-                </tr>
-              </table>
+                </label>
+              </div>
+
+              <div className="row">
+                <label className="form-label">
+                  <b>Due</b>
+                  <input
+                    className="form-control"
+                    id="wd-due-date"
+                    type="date"
+                  />
+                </label>
+              </div>
+
+              {/* FIXME: two columns turn into one row when screen is smaller */}
+              <div className="row text-nowrap">
+                <div className="col">
+                  <label className="form-label d-flex flex-column">
+                    <b>Available From:</b>
+                    <input
+                      id="wd-available-from"
+                      className="form-control"
+                      type="date"
+                    />
+                  </label>
+                </div>
+
+                <div className="col">
+                  <label className="form-label d-flex flex-column">
+                    <b>Until:</b>
+                    <input
+                      id="wd-available-until"
+                      className="form-control"
+                      type="date"
+                    />
+                  </label>
+                </div>
+              </div>
             </div>
-          </td>
-        </tr>
-      </table>
+          </div>
+        </div>
 
-      {/* Separator line */}
-      <hr />
-
-      <table width="100%">
-        <tr>
-          <td align="right" valign="top" width="100%">
-            <button>Cancel</button>
-            <button>Save</button>
-          </td>
-        </tr>
-      </table>
+        {/* Buttons */}
+        <div className="row my-5">
+          <hr />
+          <div className="d-flex justify-content-end">
+            <button type="button" className="btn btn-secondary btn-lg mx-2">
+              Cancel
+            </button>
+            <button
+              type="button"
+              className="btn btn-danger btn-large btn-lg mx-2"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

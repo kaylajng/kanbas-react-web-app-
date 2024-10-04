@@ -1,110 +1,178 @@
+import { AiOutlineHome } from "react-icons/ai";
 import { Link } from "react-router-dom";
+
 export default function Dashboard() {
   return (
-    <div id="wd-dashboard">
+    <div id="wd-dashboard" className="ms-4">
       <h1 id="wd-dashboard-title">Dashboard</h1> <hr />
       <h2 id="wd-dashboard-published">Published Courses (12)</h2> <hr />
-      {/* Course 1 */}
-      <div id="wd-dashboard-courses">
-        <div className="wd-dashboard-course">
-          <img src="/images/reactjs.jpg" width={200} />
-          <div>
-            <Link
-              className="wd-dashboard-course-link"
-              to="/Kanbas/Courses/1234/Home"
-            >
-              CS1234 React JS
-            </Link>
-            <p className="wd-dashboard-course-title">
-              Full Stack software developer
-            </p>
-            <Link to="/Kanbas/Courses/1234/Home"> Go </Link>
+      <div id="wd-dashboard-courses" className="row">
+        <div className="row row-cols-1 row-cols-md-5 g-4">
+          {/* CS 1234 */}
+          <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+            <div className="card rounded-3 overflow-hidden">
+              <Link
+                className="wd-dashboard-course-link text-decoration-none text-dark"
+                to="/Kanbas/Courses/1234/Home"
+              >
+                <img src="/images/reactjs.jpg" width="100%" height={160} />
+                <div className="card-body">
+                  <h5 className="wd-dashboard-course-title card-title">
+                    CS1234 React JS
+                  </h5>
+                  <p className="wd-dashboard-course-title card-text">
+                    Full Stack software developer
+                  </p>
+                  <button className="btn btn-primary ">
+                    <AiOutlineHome />{" "}
+                  </button>
+                </div>
+              </Link>
+            </div>
           </div>
-        </div>
-        {/* Course 2 */}
-        <div className="wd-dashboard-course">
-          <img src="/images/class2.png" width={200} />
-          <div>
-            <Link
-              className="wd-dashboard-course-link"
-              to="/Kanbas/Courses/5610/Home"
-            >
-              CS5610 Web Development
-            </Link>
-            <p className="wd-dashboard-course-title">
-              Full Stack website development
-            </p>
-            <Link to="/Kanbas/Courses/5610/Home"> Go </Link>
+
+          {/* CS 5610 */}
+          <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+            <div className="card rounded-3 overflow-hidden">
+              <Link
+                className="wd-dashboard-course-link text-decoration-none text-dark"
+                to="/Kanbas/Courses/1234/Home"
+              >
+                <img src="/images/class2.png" width="100%" height={160} />
+                <div className="card-body">
+                  <h5 className="wd-dashboard-course-title card-title">
+                    CS 5610
+                  </h5>
+                  <p className="wd-dashboard-course-title card-text">
+                    Web Development
+                  </p>
+                  <button className="btn btn-primary">
+                    {" "}
+                    <AiOutlineHome />{" "}
+                  </button>
+                </div>
+              </Link>
+            </div>
           </div>
-        </div>
-        {/* Course 3 */}
-        <div className="wd-dashboard-course">
-          <img src="/images/class3.png" width={200} />
-          <div>
-            <Link
-              className="wd-dashboard-course-link"
-              to="/Kanbas/Courses/5002/Home"
-            >
-              CS5002 Discrete Structure
-            </Link>
-            <p className="wd-dashboard-course-title">Discrete Math</p>
-            <Link to="/Kanbas/Courses/5002/Home"> Go </Link>
+
+          {/* CS 5002 */}
+          <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+            <div className="card rounded-3 overflow-hidden">
+              <Link
+                className="wd-dashboard-course-link text-decoration-none text-dark"
+                to="/Kanbas/Courses/1234/Home"
+              >
+                <img src="/images/class3.png" width="100%" height={160} />
+                <div className="card-body">
+                  <h5 className="wd-dashboard-course-title card-title">
+                    CS 5002
+                  </h5>
+                  <p className="wd-dashboard-course-title card-text">
+                    Discrete Structure
+                  </p>
+                  <button className="btn btn-primary">
+                    {" "}
+                    <AiOutlineHome />{" "}
+                  </button>
+                </div>
+              </Link>
+            </div>
           </div>
-        </div>
-        {/* Course 4 */}
-        <div className="wd-dashboard-course">
-          <img src="/images/class4.png" width={200} />
-          <div>
-            <Link
-              className="wd-dashboard-course-link"
-              to="/Kanbas/Courses/5200/Home"
-            >
-              CS5200 Database Management
-            </Link>
-            <p className="wd-dashboard-course-title">Database Management</p>
-            <Link to="/Kanbas/Courses/5200/Home"> Go </Link>
+
+          {/* 5200 */}
+          <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+            <div className="card rounded-3 overflow-hidden">
+              <Link
+                className="wd-dashboard-course-link text-decoration-none text-dark"
+                to="/Kanbas/Courses/1234/Home"
+              >
+                <img src="/images/class4.png" width="100%" height={160} />
+                <div className="card-body">
+                  <h5 className="wd-dashboard-course-title card-title">
+                    CS 5200
+                  </h5>
+                  <p className="wd-dashboard-course-title card-text">
+                    Database Management
+                  </p>
+                  <button className="btn btn-primary">
+                    {" "}
+                    <AiOutlineHome />{" "}
+                  </button>
+                </div>
+              </Link>
+            </div>
           </div>
-        </div>
-        {/* Course 5 */}
-        <div className="wd-dashboard-course">
-          <img src="/images/class5.png" width={200} />
-          <div>
-            <Link
-              className="wd-dashboard-course-link"
-              to="/Kanbas/Courses/5004/Home"
-            >
-              CS5004 Object_Oriented Design
-            </Link>
-            <p className="wd-dashboard-course-title">Object_Oriented Design</p>
-            <Link to="/Kanbas/Courses/5004/Home"> Go </Link>
+
+          {/* CS 5004 */}
+          <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+            <div className="card rounded-3 overflow-hidden">
+              <Link
+                className="wd-dashboard-course-link text-decoration-none text-dark"
+                to="/Kanbas/Courses/1234/Home"
+              >
+                <img src="/images/class5.png" width="100%" height={160} />
+                <div className="card-body">
+                  <h5 className="wd-dashboard-course-title card-title">
+                    CS 5004
+                  </h5>
+                  <p className="wd-dashboard-course-title card-text">
+                    Object Oriented Design
+                  </p>
+                  <button className="btn btn-primary">
+                    {" "}
+                    <AiOutlineHome />{" "}
+                  </button>
+                </div>
+              </Link>
+            </div>
           </div>
-        </div>
-        {/* Course 6 */}
-        <div className="wd-dashboard-course">
-          <img src="/images/class6.png" width={200} />
-          <div>
-            <Link
-              className="wd-dashboard-course-link"
-              to="/Kanbas/Courses/5005/Home"
-            >
-              CS5005 Recitation for OOD
-            </Link>
-            <p className="wd-dashboard-course-title">Recitation for OOD</p>
-            <Link to="/Kanbas/Courses/5005/Home"> Go </Link>
+
+          {/* 5008 */}
+          <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+            <div className="card rounded-3 overflow-hidden">
+              <Link
+                className="wd-dashboard-course-link text-decoration-none text-dark"
+                to="/Kanbas/Courses/1234/Home"
+              >
+                <img src="/images/class6.png" width="100%" height={160} />
+                <div className="card-body">
+                  <h5 className="wd-dashboard-course-title card-title">
+                    CS 5008
+                  </h5>
+                  <p className="wd-dashboard-course-title card-text">
+                    Data Structures and Algorithms
+                  </p>
+                  <button className="btn btn-primary">
+                    {" "}
+                    <AiOutlineHome />{" "}
+                  </button>
+                </div>
+              </Link>
+            </div>
           </div>
-        </div>
-        {/* Course 7 */}
-        <div className="wd-dashboard-course">
-          <img src="/images/class7.png" width={200} />
-          <div>
-            <Link
-              className="wd-dashboard-course-link"
-              to="/Kanbas/Courses/5000/Home"
-            >
-              CS5000 Align Math Foundation
-            </Link>
-            <p className="wd-dashboard-course-title">Align Math Foundation</p>
-            <Link to="/Kanbas/Courses/5000/Home"> Go </Link>
+
+          {/* 5000 */}
+          <div className="wd-dashboard-course col" style={{ width: "300px" }}>
+            <div className="card rounded-3 overflow-hidden">
+              <Link
+                className="wd-dashboard-course-link text-decoration-none text-dark"
+                to="/Kanbas/Courses/1234/Home"
+              >
+                <img src="/images/class7.png" width="100%" height={160} />
+                <div className="card-body">
+                  <h5 className="wd-dashboard-course-title card-title">
+                    CS 5000
+                  </h5>
+                  <p className="wd-dashboard-course-title card-text">
+                    Align Math Foundation
+                  </p>
+                  <button className="btn btn-primary">
+                    {" "}
+                    <AiOutlineHome />{" "}
+                  </button>
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
