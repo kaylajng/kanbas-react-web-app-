@@ -14,6 +14,7 @@ const modulesSlice = createSlice({
         name: module.name,
         course: module.course,
       };
+
       state.modules = [...state.modules, newModule] as any;
     },
     deleteModule: (state, { payload: moduleId }) => {
@@ -25,9 +26,9 @@ const modulesSlice = createSlice({
       ) as any;
     },
     editModule: (state, { payload: moduleId }) => {
-      state.modules = state.modules.map((m: any) =>
-        m._id === moduleId ? { ...m, editing: true } : m
-      ) as any;
+      state.modules = state.modules.map((m: any) => {
+        return m._id === moduleId ? { ...m, editing: true } : m;
+      }) as any;
     },
   },
 });

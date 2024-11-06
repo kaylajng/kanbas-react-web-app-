@@ -8,7 +8,6 @@ import { Link, useLocation } from "react-router-dom";
 export default function KanbasNavigation() {
   const { pathname } = useLocation();
 
-  //json info for every link in our nav menu
   const links = [
     { label: "Dashboard", path: "/Kanbas/Dashboard", icon: AiOutlineDashboard },
     { label: "Courses", path: "/Kanbas/Dashboard", icon: LiaBookSolid },
@@ -36,11 +35,11 @@ export default function KanbasNavigation() {
       <Link
         to="/Kanbas/Account"
         className={`list-group-item text-center border-0 bg-black
-        ${
-          pathname.includes("Account")
-            ? "bg-white text-danger"
-            : "bg-black text-white"
-        }`}
+            ${
+              pathname.includes("Account")
+                ? "bg-white text-danger"
+                : "bg-black text-white"
+            }`}
       >
         <FaRegCircleUser
           className={`fs-1 ${
@@ -51,7 +50,6 @@ export default function KanbasNavigation() {
         Account
       </Link>
 
-      {/* creates the rest of the nav menu items */}
       {links.map((link) => (
         <Link
           key={link.path}

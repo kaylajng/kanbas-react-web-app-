@@ -5,11 +5,11 @@ import { FaUserCircle } from "react-icons/fa";
 
 export default function PeopleTable() {
   const { cid } = useParams();
-  //get the enrollments for this class
+
   const enrollments = db.enrollments.filter(
     (enrollment) => enrollment.course === cid
   );
-  //get all the people found in the enrollments
+
   const users = db.users.filter((usr) =>
     enrollments.some((enrollment) => enrollment.user === usr._id)
   );

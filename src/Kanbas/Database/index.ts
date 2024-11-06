@@ -5,3 +5,4 @@ import enrollments from "./enrollments.json";
 import users from "./users.json";
 
 export { courses, modules, assignments, enrollments, users };
+//only contains typescript, no html, no formatting, no user interface, just data

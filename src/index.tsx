@@ -11,6 +11,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    {/* the main component is rendered inside root, starting the React app */}
     <App />
   </React.StrictMode>
 );

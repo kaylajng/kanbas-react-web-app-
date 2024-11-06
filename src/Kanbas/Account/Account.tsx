@@ -3,8 +3,11 @@ import Profile from "./Profile";
 import Signup from "./Signup";
 import { Navigate, Route, Routes } from "react-router-dom";
 import AccountNavigation from "./Navigation";
+import { useSelector } from "react-redux";
 
 export default function Account() {
+  const { currentUser } = useSelector((state: any) => state.accountReducer);
+
   return (
     <div id="wd-account-screen">
       <h2>Account</h2>
@@ -16,11 +19,20 @@ export default function Account() {
 
         <div className="flex-grow-1 mx-1" style={{ maxWidth: "750px" }}>
           <Routes>
-            {/*Make the default path go to the sign in page*/}
+            {/* Make the default path to Signin if no one is signed in yet, and Profile if someone is already signed in */}
             <Route
               path="/"
-              element={<Navigate to="/Kanbas/Account/Signin" />}
+              element={
+                <Navigate
+                  to={
+                    currentUser
+                      ? "/Kanbas/Account/Profile"
+                      : "/Kanbas/Account/Signin"
+                  }
+                />
+              }
             />
+
             <Route path="/Signin" element={<Signin />} />
             <Route path="/Profile" element={<Profile />} />
             <Route path="/Signup" element={<Signup />} />
