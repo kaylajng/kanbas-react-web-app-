@@ -8,7 +8,7 @@ import PeopleTable from "./People/Table";
 import { FaAlignJustify } from "react-icons/fa6";
 
 export default function Courses({ courses }: { courses: any[] }) {
-  const { cid } = useParams();
+  const { cid } = useParams<{ cid: string }>();
   const { pathname } = useLocation();
 
   const course = courses.find((course) => course._id === cid);
@@ -33,7 +33,10 @@ export default function Courses({ courses }: { courses: any[] }) {
             <Route path="/Piazza" element={<h2>Piazza...</h2>} />
             <Route path="/Zoom" element={<h2>Zoom...</h2>} />
             <Route path="/Assignments" element={<Assignments />} />
-            <Route path="/Assignments/:aid" element={<AssignmentEditor />} />
+            <Route
+              path="/Assignments/:aid/:mode"
+              element={<AssignmentEditor />}
+            />
             <Route path="/Quizzes" element={<h2>Quizzes</h2>} />
             <Route path="/Grades" element={<h2>Grades</h2>} />
             <Route path="/People" element={<PeopleTable />} />

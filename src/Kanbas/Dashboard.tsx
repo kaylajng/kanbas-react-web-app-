@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { addEnrollment } from "./Account/enrollmentReducer";
 import { Enrollment } from "./enrollmentTypes";
 import CourseNavigation from "./Courses/CourseNavigation";
 import FacultyAccess from "./Account/FacultyAccess";
@@ -18,17 +17,18 @@ export default function Dashboard({
   courses: any[];
   course: any;
   setCourse: (course: any) => void;
-  addNewCourse: () => string;
+  addNewCourse: () => Promise<void>;
   deleteCourse: (course: any) => void;
   updateCourse: () => void;
 }) {
-  const dispatch = useDispatch();
-  // Get current user info from Redux store
   const { currentUser } = useSelector((state: any) => state.accountReducer);
-  const [showEnrollmentMode, setshowEnrollmentMode] = useState(false);
+
+  const [enrollmentMode, setEnrollmentMode] = useState(false);
+
   const { enrollments } = useSelector((state: any) => state.enrollmentsReducer);
+
   const switchEnrollmentView = () => {
-    setshowEnrollmentMode(!showEnrollmentMode);
+    setEnrollmentMode(!enrollmentMode);
   };
 
   return (
@@ -42,10 +42,7 @@ export default function Dashboard({
             className="btn btn-primary float-end"
             onClick={(e) => {
               e.preventDefault();
-              const new_id = addNewCourse();
-              dispatch(
-                addEnrollment({ user_id: currentUser._id, course_id: new_id })
-              );
+              addNewCourse();
             }}
           >
             Add
@@ -91,71 +88,54 @@ export default function Dashboard({
       <hr />
       <div id="wd-dashboard-courses" className="row">
         <div className="row row-cols-1 row-cols-md-5 g-4">
-          {courses
-            // Filter courses based on enrollment status
-            .filter((course) => {
-              // Check if the user is enrolled in the course
-              const isEnrolled = enrollments.some(
-                (entry: Enrollment) =>
-                  entry.user_id === currentUser._id &&
-                  entry.course_id === course._id
-              );
+          {courses.map((course) => {
+            const isEnrolled = enrollments.some(
+              (entry: Enrollment) =>
+                entry.user_id === currentUser._id &&
+                entry.course_id === course._id
+            );
 
-              // Show all courses in enrollment mode, or only enrolled courses otherwise
-              if (currentUser.role === "STUDENT" && showEnrollmentMode) {
-                return true;
-              } else {
-                return isEnrolled;
-              }
-            })
-            .map((course) => {
-              const isEnrolled = enrollments.some(
-                (entry: Enrollment) =>
-                  entry.user_id === currentUser._id &&
-                  entry.course_id === course._id
+            if (enrollmentMode && !isEnrolled) {
+              return (
+                <div
+                  key={`dashboard-course-${course._id}`}
+                  className="wd-dashboard-course col"
+                  style={{ width: "300px" }}
+                >
+                  <div className="card rounded-3 overflow-hidden">
+                    <CourseNavigation
+                      course={course}
+                      enrollmentMode={enrollmentMode}
+                      deleteCourse={deleteCourse}
+                      setCourse={setCourse}
+                    />
+                  </div>
+                </div>
               );
-
-              if (showEnrollmentMode && !isEnrolled) {
-                return (
-                  <div
-                    key={`dashboard-course-${course._id}`}
-                    className="wd-dashboard-course col"
-                    style={{ width: "300px" }}
-                  >
-                    <div className="card rounded-3 overflow-hidden">
+            } else {
+              return (
+                <div
+                  key={`dashboard-course-${course._id}`}
+                  className="wd-dashboard-course col"
+                  style={{ width: "300px" }}
+                >
+                  <div className="card rounded-3 overflow-hidden">
+                    <Link
+                      to={`/Kanbas/Courses/${course._id}/Home`}
+                      className="wd-dashboard-course-link text-decoration-none text-dark"
+                    >
                       <CourseNavigation
                         course={course}
-                        showEnrollmentMode={showEnrollmentMode}
+                        enrollmentMode={enrollmentMode}
                         deleteCourse={deleteCourse}
                         setCourse={setCourse}
                       />
-                    </div>
+                    </Link>
                   </div>
-                );
-              } else {
-                return (
-                  <div
-                    key={`dashboard-course-${course._id}`}
-                    className="wd-dashboard-course col"
-                    style={{ width: "300px" }}
-                  >
-                    <div className="card rounded-3 overflow-hidden">
-                      <Link
-                        to={`/Kanbas/Courses/${course._id}/Home`}
-                        className="wd-dashboard-course-link text-decoration-none text-dark"
-                      >
-                        <CourseNavigation
-                          course={course}
-                          showEnrollmentMode={showEnrollmentMode}
-                          deleteCourse={deleteCourse}
-                          setCourse={setCourse}
-                        />
-                      </Link>
-                    </div>
-                  </div>
-                );
-              }
-            })}
+                </div>
+              );
+            }
+          })}
         </div>
       </div>
     </div>

@@ -4,27 +4,48 @@ import { MdAssignment } from "react-icons/md";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { BsGripVertical } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
-import { addAssignment, deleteAssignment } from "./reducer";
+import { addAssignment, deleteAssignment, setAssignments } from "./reducer";
 import { useSelector, useDispatch } from "react-redux";
 import AssignmentControlButtons from "./AssignmentControlButtons";
 import FacultyAccess from "../../Account/FacultyAccess";
+import * as assignmentsClient from "./client";
+import { useEffect } from "react";
 
 export default function Assignments() {
-  const cid = useParams().cid;
-  const { assignments } = useSelector((state: any) => state.assignmentsReducer);
+  const { cid } = useParams<{ cid: string }>();
   const { currentUser } = useSelector((state: any) => state.accountReducer);
+  const { assignments } = useSelector((state: any) => state.assignmentsReducer);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const deleteCurrAssignment = (assignmentId: string) => {
+  //get assignments from our server when we first load
+  const fetchAssignments = async () => {
+    if (typeof cid === "string") {
+      const serverAssignments = await assignmentsClient.getAssignments(cid);
+      dispatch(setAssignments(serverAssignments));
+    } else {
+      throw new TypeError(
+        `'cid' should be a string but is actually ${typeof cid}`
+      );
+    }
+  };
+  useEffect(() => {
+    fetchAssignments();
+  }, []);
+
+  const deleteCurrAssignment = async (assignmentId: string) => {
+    await assignmentsClient.deleteAssignment(assignmentId);
     dispatch(deleteAssignment(assignmentId));
   };
 
-  const newAssignment = () => {
-    const new_id = new Date().getTime().toString();
-    dispatch(addAssignment({ _id: new_id, course: cid }));
-    navigate(`/Kanbas/Courses/${cid}/Assignments/${new_id}`);
+  const createNewAssignment = async () => {
+    const newAssignment = await assignmentsClient.createAssignment({
+      course: cid,
+    });
+    dispatch(addAssignment(newAssignment));
+
+    navigate(`/Kanbas/Courses/${cid}/Assignments/${newAssignment._id}/new`);
   };
 
   return (
@@ -55,7 +76,7 @@ export default function Assignments() {
           <button
             id="wd-add-assignment"
             className="btn btn-lg btn-danger ms-1 text-nowrap"
-            onClick={newAssignment}
+            onClick={createNewAssignment}
           >
             + Assignment
           </button>
@@ -85,7 +106,10 @@ export default function Assignments() {
           <ul className="wd-lessons list-group rounded-0">
             {assignments.map((assignment: any) => {
               return (
-                <li className="wd-assignment-list-item list-group-item p-3 ps-1">
+                <li
+                  key={`li-${assignment._id}`}
+                  className="wd-assignment-list-item list-group-item p-3 ps-1"
+                >
                   <div className="row">
                     <div className="d-flex col-auto align-items-center">
                       <BsGripVertical className="me-2 fs-3" />
@@ -95,7 +119,7 @@ export default function Assignments() {
                     <div className="col d-flex flex-column align-items-start">
                       <a
                         className="wd-assignment-link fw-bold fs-4"
-                        href={`#/Kanbas/Courses/${cid}/Assignments/${assignment._id}`}
+                        href={`#/Kanbas/Courses/${cid}/Assignments/${assignment._id}/edit`}
                       >
                         {assignment.title}
                       </a>

@@ -4,7 +4,7 @@ import React from "react";
 import { FaUserCircle } from "react-icons/fa";
 
 export default function PeopleTable() {
-  const { cid } = useParams();
+  const { cid } = useParams<{ cid: string }>();
 
   const enrollments = db.enrollments.filter(
     (enrollment) => enrollment.course === cid

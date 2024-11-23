@@ -13,7 +13,7 @@ export default function CoursesNavigation() {
     "People",
   ];
 
-  const { cid } = useParams();
+  const { cid } = useParams<{ cid: string }>();
   const { pathname } = useLocation();
 
   return (
@@ -24,6 +24,7 @@ export default function CoursesNavigation() {
       {links.map((linkName) => (
         <Link
           id="wd-course-home-link"
+          key={`nav-link-${linkName}`}
           to={`/Kanbas/Courses/${cid}/${linkName}`}
           className={`list-group-item border border-0 ${
             pathname.includes(linkName) ? `active` : `text-danger`

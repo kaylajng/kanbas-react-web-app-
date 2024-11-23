@@ -1,14 +1,14 @@
 import { IoEllipsisVertical } from "react-icons/io5";
 import GreenCheckmark from "../Modules/GreenCheckmark";
-import FacultyAccess from "../../Account/FacultyAccess";
 import { FaTrash } from "react-icons/fa";
+import FacultyAccess from "../../Account/FacultyAccess";
 
 export default function AssignmentControlButtons({
   assignmentId,
   deleteAssignment,
 }: {
   assignmentId: string;
-  deleteAssignment: (assignmentId: string) => void;
+  deleteAssignment: (assignmentId: string) => Promise<void>;
 }) {
   const confirmDelete = (assignmentId: string) => {
     const confirmed = window.confirm(

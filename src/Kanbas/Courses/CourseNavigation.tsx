@@ -4,14 +4,14 @@ import { Enrollment } from "../enrollmentTypes";
 import { useSelector } from "react-redux";
 import { addEnrollment, removeEnrollment } from "../Account/enrollmentReducer";
 
-export default function CourseNavigation({
+export default function CourseNavCard({
   course,
-  showEnrollmentMode,
+  enrollmentMode,
   deleteCourse,
   setCourse,
 }: {
   course: any;
-  showEnrollmentMode: boolean;
+  enrollmentMode: boolean;
   deleteCourse: (course: any) => void;
   setCourse: (course: any) => void;
 }) {
@@ -20,7 +20,7 @@ export default function CourseNavigation({
   const { currentUser } = useSelector((state: any) => state.accountReducer);
 
   const getCourseButtons = (courseId: string) => {
-    if (!showEnrollmentMode) {
+    if (!enrollmentMode) {
       return <button className="btn btn-primary ">Go </button>;
     }
 
