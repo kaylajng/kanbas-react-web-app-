@@ -1,4 +1,6 @@
 export interface Enrollment {
-  user_id: string;
   course_id: string;
+  user_id: any;
+  user: string;
+  course: string;
 }

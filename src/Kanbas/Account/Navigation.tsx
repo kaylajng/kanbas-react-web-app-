@@ -8,6 +8,7 @@ export default function AccountNavigation() {
   const links = currentUser ? ["Profile"] : ["Signin", "Signup"];
   // Get the current URL path to highlight the active link
   const { pathname } = useLocation();
+  const active = (path: string) => (pathname.includes(path) ? "active" : "");
 
   return (
     // Maps over each item in the links array and create a Link component for each one
@@ -23,6 +24,14 @@ export default function AccountNavigation() {
           {navLink}
         </Link>
       ))}
+      {currentUser && currentUser.role === "ADMIN" && (
+        <Link
+          to={`/Kanbas/Account/Users`}
+          className={`list-group-item ${active("Users")}`}
+        >
+          Users
+        </Link>
+      )}
     </div>
   );
 }
